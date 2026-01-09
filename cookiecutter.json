@@ -4,5 +4,6 @@
   "project_description": "Python project with modern tooling",
   "author_name": "Your Name",
   "python_version": "3.12",
+  "include_tests": ["yes", "no"],
   "include_jupyter": ["yes", "no"]
 }

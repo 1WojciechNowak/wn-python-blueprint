@@ -1,4 +1,4 @@
-.PHONY: help install clean check fix test typecheck{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
+.PHONY: help install clean check fix typecheck{% if cookiecutter.include_tests == 'yes' %} test{% endif %}{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
 
 help:
 	@echo "Available commands:"
@@ -8,9 +8,15 @@ help:
 	@echo "  make clean     - Remove virtual environment"
 	@echo ""
 	@echo "Quality"
+{% if cookiecutter.include_tests == 'yes' %}
 	@echo "  make check     - Run all (fix + typecheck + test)"
+{% else %}
+	@echo "  make check     - Run all (fix + typecheck)"
+{% endif %}
 	@echo "  make fix       - Auto-fix and format code"
+{% if cookiecutter.include_tests == 'yes' %}
 	@echo "  make test      - Run tests"
+{% endif %}
 	@echo "  make typecheck - Run type checking (mypy)"
 {% if cookiecutter.include_jupyter == 'yes' %}
 	@echo ""
@@ -33,7 +39,11 @@ clean:
 # Quality
 # -----------------------------------------
 
+{% if cookiecutter.include_tests == 'yes' %}
 check: fix typecheck test
+{% else %}
+check: fix typecheck
+{% endif %}
 
 typecheck:
 	poetry run mypy .
@@ -41,9 +51,11 @@ typecheck:
 fix:
 	poetry run ruff check . --fix
 	poetry run ruff format .
+{% if cookiecutter.include_tests == 'yes' %}
 
 test:
 	poetry run pytest
+{% endif %}
 
 {% if cookiecutter.include_jupyter == 'yes' %}
 

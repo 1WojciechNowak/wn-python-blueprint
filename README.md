@@ -9,8 +9,8 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 - **Poetry** - Dependency management
 - **Ruff** - Linting and formatting
 - **Mypy** - Static type checking
-- **Pytest** - Testing with coverage
-- **Jupyter** - Optional notebook support
+- **Pytest** - (Optional) Testing with coverage
+- **Jupyter** - (Optional) Notebook support
 
 ## 🚀 Usage
 
@@ -33,6 +33,7 @@ cookiecutter gh:wojciechnowak/wn-python-blueprint
 | `project_description` | Short project description | Python project with modern tooling |
 | `author_name` | Your name | Your Name |
 | `python_version` | Python version | 3.12 |
+| `include_tests` | Include tests setup | yes |
 | `include_jupyter` | Include Jupyter support | yes |
 
 ## 📦 What's Included
@@ -43,7 +44,7 @@ cookiecutter gh:wojciechnowak/wn-python-blueprint
 │   └── <project_slug>/
 │       ├── __init__.py
 │       └── main.py
-├── tests/
+├── tests/              # if include_tests: yes
 │   └── test_main.py
 ├── notebooks/          # if include_jupyter: yes
 │   └── hello_world.ipynb

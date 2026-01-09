@@ -5,7 +5,11 @@
 Before committing your changes:
 
 ```bash
+{%- if cookiecutter.include_tests == 'yes' %}
 make check    # Run all: fix + typecheck + test
+{%- else %}
+make check    # Run all: fix + typecheck
+{%- endif %}
 ```
 
 ### Tools
@@ -16,7 +20,9 @@ This project uses the following development tools:
 |------|---------|---------|
 | **Ruff** | Linting and formatting | `make fix` |
 | **Mypy** | Static type checking | `make typecheck` |
+{%- if cookiecutter.include_tests == 'yes' %}
 | **Pytest** | Testing with coverage | `make test` |
+{%- endif %}
 {% if cookiecutter.include_jupyter == 'yes' %}
 
 ## 📓 Jupyter Notebooks
