@@ -21,7 +21,7 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 ### Create a New Project
 
 ```bash
-cookiecutter gh:wojciechnowak/wn-python-blueprint
+cookiecutter git@github.com:1WojciechNowak/wn-python-blueprint.git
 ```
 
 ### Template Configuration
