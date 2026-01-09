@@ -1,5 +1,4 @@
-# Use TAB characters for indentation (not spaces)!
-.PHONY: help install clean check fix test{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
+.PHONY: help install clean check fix test typecheck{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
 
 help:
 	@echo "Available commands:"
@@ -9,9 +8,10 @@ help:
 	@echo "  make clean     - Remove virtual environment"
 	@echo ""
 	@echo "Quality"
-	@echo "  make check     - Run all checks (lint + types + test)"
+	@echo "  make check     - Run all (fix + typecheck + test)"
 	@echo "  make fix       - Auto-fix and format code"
-	@echo "  make test      - Run tests only"
+	@echo "  make test      - Run tests"
+	@echo "  make typecheck - Run type checking (mypy)"
 {% if cookiecutter.include_jupyter == 'yes' %}
 	@echo ""
 	@echo "Jupyter"
@@ -33,10 +33,10 @@ clean:
 # Quality
 # -----------------------------------------
 
-check:
-	poetry run ruff check .
+check: fix typecheck test
+
+typecheck:
 	poetry run mypy .
-	poetry run pytest
 
 fix:
 	poetry run ruff check . --fix
