@@ -1,0 +1,67 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug.replace('_', '-') }}"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.author_name }}"]
+packages = [{include = "{{ cookiecutter.project_slug }}", from = "src"}]
+
+[tool.poetry.scripts]
+{{ cookiecutter.project_slug.replace('_', '-') }} = "{{ cookiecutter.project_slug }}.main:main"
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version }}"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.14.0,<0.15.0)",
+    "mypy (>=1.19.0,<2.0.0)",
+    "pytest (>=9.0.0,<10.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "pre-commit (>=4.0.0,<5.0.0)",
+{%- if cookiecutter.include_jupyter == 'yes' %}
+    "jupyter (>=1.1.0,<2.0.0)",
+    "ipykernel (>=7.1.0,<8.0.0)"
+{%- endif %}
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort (import sorting)
+    "B",    # bugbear (common bugs)
+    "UP",   # pyupgrade (modern Python syntax)
+]
+ignore = ["E501"]  # Let formatter handle line length
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "{{ cookiecutter.python_version }}"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --cov={{ cookiecutter.project_slug }} --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["src/{{ cookiecutter.project_slug }}"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+]

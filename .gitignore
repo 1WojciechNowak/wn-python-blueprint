@@ -1,0 +1,18 @@
+# Claude Code
+.claude/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Python cache (from testing the template)
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
