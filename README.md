@@ -4,6 +4,8 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 
 ## Features
 
+- **Project layout** - Modern src/tests/notebooks structure
+- **pyenv** - Python version management
 - **Poetry** - Dependency management
 - **Ruff** - Linting and formatting
 - **Mypy** - Static type checking
@@ -15,26 +17,32 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 
 ### Prerequisites
 
-Install cookiecutter:
-```bash
-pip install cookiecutter
-# or
-pipx install cookiecutter
-```
+- [cookiecutter](https://cookiecutter.readthedocs.io) - Project templating tool
+  ```bash
+  brew install cookiecutter
+  # or
+  pip install cookiecutter
+  ```
+- [pyenv](https://github.com/pyenv/pyenv) - Python version management
+  ```bash
+  brew install pyenv
+  # or
+  curl https://pyenv.run | bash
+  ```
+- [Poetry](https://python-poetry.org/) - Dependency management
+  ```bash
+  brew install poetry
+  # or
+  pip install poetry
+  ```
 
 ### Create a New Project
 
-From GitHub:
 ```bash
 cookiecutter gh:wojciechnowak/wn-python-blueprint
 ```
 
-From local clone:
-```bash
-cookiecutter path/to/wn-python-blueprint
-```
-
-### Prompts
+### Template Configuration
 
 | Variable | Description | Default |
 |----------|-------------|---------|
@@ -45,25 +53,18 @@ cookiecutter path/to/wn-python-blueprint
 | `python_version` | Python version | 3.12 |
 | `include_jupyter` | Include Jupyter support | yes |
 
-### After Generation
-
-```bash
-cd your_project_slug
-make install        # Install dependencies
-make pre-commit     # Install git hooks
-make check          # Run all checks
-```
-
 ## What's Included
 
 ```
-your_project/
+<project_slug>/
 ├── src/
-│   └── your_project/
+│   └── <project_slug>/
 │       ├── __init__.py
 │       └── main.py
 ├── tests/
 │   └── test_main.py
+├── notebooks/          # if include_jupyter: yes
+│   └── hello_world.ipynb
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── .python-version
@@ -76,4 +77,4 @@ your_project/
 
 ## License
 
-MIT
+[MIT](LICENSE)

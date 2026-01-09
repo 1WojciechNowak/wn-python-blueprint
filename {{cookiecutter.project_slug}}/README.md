@@ -9,15 +9,11 @@
 
 ## Setup
 
-1. Install the required Python version:
-   ```bash
-   pyenv install {{ cookiecutter.python_version }}
-   ```
-
-2. Install dependencies:
-   ```bash
-   poetry install
-   ```
+```bash
+make install      # Install dependencies
+make pre-commit   # Install git hooks
+make check        # Run all checks
+```
 
 ## Project Structure
 
