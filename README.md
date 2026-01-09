@@ -1,8 +1,8 @@
-# WN Python Blueprint
+# 🐍 WN Python Blueprint
 
 A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Python projects with modern tooling.
 
-## Features
+## ✨ Features
 
 - **Project layout** - Modern src/tests/notebooks structure
 - **pyenv** - Python version management
@@ -13,28 +13,11 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 - **Pre-commit** - Git hooks for automated checks
 - **Jupyter** - Optional notebook support
 
-## Usage
+## 🚀 Usage
 
 ### Prerequisites
 
 - [cookiecutter](https://cookiecutter.readthedocs.io) - Project templating tool
-  ```bash
-  brew install cookiecutter
-  # or
-  pip install cookiecutter
-  ```
-- [pyenv](https://github.com/pyenv/pyenv) - Python version management
-  ```bash
-  brew install pyenv
-  # or
-  curl https://pyenv.run | bash
-  ```
-- [Poetry](https://python-poetry.org/) - Dependency management
-  ```bash
-  brew install poetry
-  # or
-  pip install poetry
-  ```
 
 ### Create a New Project
 
@@ -53,7 +36,7 @@ cookiecutter gh:wojciechnowak/wn-python-blueprint
 | `python_version` | Python version | 3.12 |
 | `include_jupyter` | Include Jupyter support | yes |
 
-## What's Included
+## 📦 What's Included
 
 ```
 <project_slug>/
