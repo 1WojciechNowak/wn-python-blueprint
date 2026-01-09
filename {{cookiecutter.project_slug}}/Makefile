@@ -1,5 +1,5 @@
 # Use TAB characters for indentation (not spaces)!
-.PHONY: help install clean check fix test pre-commit{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
+.PHONY: help install clean check fix test{% if cookiecutter.include_jupyter == 'yes' %} kernel jupyter{% endif %}
 
 help:
 	@echo "Available commands:"
@@ -12,9 +12,6 @@ help:
 	@echo "  make check     - Run all checks (lint + types + test)"
 	@echo "  make fix       - Auto-fix and format code"
 	@echo "  make test      - Run tests only"
-	@echo ""
-	@echo "Git Hooks"
-	@echo "  make pre-commit - Install pre-commit hooks"
 {% if cookiecutter.include_jupyter == 'yes' %}
 	@echo ""
 	@echo "Jupyter"
@@ -48,12 +45,6 @@ fix:
 test:
 	poetry run pytest
 
-# -----------------------------------------
-# Git Hooks
-# -----------------------------------------
-
-pre-commit:
-	poetry run pre-commit install
 {% if cookiecutter.include_jupyter == 'yes' %}
 
 # -----------------------------------------

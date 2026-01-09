@@ -1,21 +1,19 @@
-# {{ cookiecutter.project_name }}
+# 🐍 {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_description }}
 
-## Prerequisites
+## 📋 Prerequisites
 
 - [pyenv](https://github.com/pyenv/pyenv) - Python version management
 - [Poetry](https://python-poetry.org/) - Dependency management
 
-## Setup
+## 🚀 Setup
 
 ```bash
-make install      # Install dependencies
-make pre-commit   # Install git hooks
-make check        # Run all checks
+make install
 ```
 
-## Project Structure
+## 📦 Project Structure
 
 ```
 src/
@@ -23,20 +21,20 @@ src/
     ├── __init__.py
     └── main.py
 tests/
+├── __init__.py
 └── test_main.py
+{%- if cookiecutter.include_jupyter == 'yes' %}
+notebooks/
+└── hello_world.ipynb
+{%- endif %}
 ```
 
-## Running the Project
+## ▶️ Running the Project
 
 ```bash
 poetry run {{ cookiecutter.project_slug.replace('_', '-') }}
 ```
 
-Or as a module:
-```bash
-poetry run python -m {{ cookiecutter.project_slug }}.main
-```
-
-## Contributing
+## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.

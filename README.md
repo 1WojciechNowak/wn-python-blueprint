@@ -10,7 +10,6 @@ A [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for Pyth
 - **Ruff** - Linting and formatting
 - **Mypy** - Static type checking
 - **Pytest** - Testing with coverage
-- **Pre-commit** - Git hooks for automated checks
 - **Jupyter** - Optional notebook support
 
 ## 🚀 Usage
@@ -49,7 +48,6 @@ cookiecutter gh:wojciechnowak/wn-python-blueprint
 ├── notebooks/          # if include_jupyter: yes
 │   └── hello_world.ipynb
 ├── .gitignore
-├── .pre-commit-config.yaml
 ├── .python-version
 ├── CONTRIBUTING.md
 ├── Makefile
